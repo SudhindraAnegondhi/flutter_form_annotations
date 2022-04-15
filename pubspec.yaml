@@ -2,7 +2,7 @@ name: flutter_form_annotations
 description: Annotations for flutter_form_generator.
 version: 1.0.0
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.16.0 <3.0.0"
 dependencies: 
  
 dev_dependencies:

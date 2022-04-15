@@ -1,4 +1,5 @@
 // ignore_for_file: lines_longer_than_80_chars
+import 'dart:convert';
 
 enum FieldPropertyType {
   boolean,
@@ -67,6 +68,12 @@ String getKeyboardType(String type) {
       return 'TextInputType.text';
   }
 }
+
+String camelCaseToTitleCase(String label) => label
+    .replaceAllMapped(RegExp(r'(?!^)([A-Z])'), (Match match) => ' ${match.group(1)}')
+    .split(' ')
+    .map((String s) => s[0].toUpperCase() + s.substring(1).toLowerCase())
+    .join(' ');
 
 // defs structure:
 /*
@@ -189,4 +196,34 @@ String typeToValue(String fieldType) {
       response = 'value';
   }
   return response;
+}
+
+
+dynamic stringToTypeValue(String type, String value) {
+  switch (type) {
+    case 'int':
+      return int.parse(value);
+    case 'double':
+      return double.parse(value);
+    case 'bool':
+      return value == 'true';
+    case 'DateTime':
+      return DateTime.parse(value);
+    case 'List<String>':
+     return jsonDecode(value) as List<String>;
+    case 'List<int>':
+      return jsonDecode(value) as List<int>;
+    case 'List<double>':
+      return jsonDecode(value) as List<double>;
+    case 'List<bool>':
+      return jsonDecode(value) as List<bool>;
+    case 'List<DateTime>':
+      return jsonDecode(value) as List<DateTime>;
+    case 'List<Map<String, dynamic>>':
+      return jsonDecode(value) as List<Map<String, dynamic>>;
+    case 'Map<String, dynamic>':
+      return jsonDecode(value) as Map<String, dynamic>;
+    default:
+      return value;
+  }
 }

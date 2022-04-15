@@ -311,10 +311,10 @@
       "name": "flutter_form_annotations",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-04-10T03:37:50.324847Z",
+  "generated": "2022-04-14T04:57:29.660942Z",
   "generator": "pub",
   "generatorVersion": "2.16.2"
 }
