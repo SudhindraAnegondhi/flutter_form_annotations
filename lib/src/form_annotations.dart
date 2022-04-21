@@ -1,3 +1,7 @@
+// ignore_for_file: omit_local_variable_types
+
+import 'dart:mirrors';
+
 // ignore_for_file: lines_longer_than_80_chars
 /*
 class GenerateForm {
@@ -20,7 +24,7 @@ class Lookup {
 //*****************************
 //  property  definitions
 //*****************************/
-final Map<String, dynamic> $properties = {
+final $properties = <String, dynamic>{
   'label': 'String',
   'hint': 'String',
   'enabled': 'bool',
@@ -37,6 +41,19 @@ class FormBuilder {
   const FormBuilder({this.defs});
   final String? defs;
 }
+
+Map<String, String> getClassProperties(Type type) {
+  final Map<String, String> properties = {};
+  for (final v in reflectClass(type).declarations.values) {
+    final _name = MirrorSystem.getName(v.simpleName);
+    if (v is VariableMirror) {
+      properties[_name] = v.type.reflectedType.toString();
+    }
+  }
+  return properties;
+}
+
+
 
 class FieldText {
   final String? label;
@@ -62,7 +79,9 @@ class FieldTextArea {
   final dynamic initialValue;
   final double? sequence;
 
-  const FieldTextArea({this.label, this.maxLines, this.hint, this.enabled, this.inputDecoration, this.type, this.validators, this.initialValue , this.sequence});
+  FieldTextArea(this.label, this.maxLines, this.hint, this.enabled, this.inputDecoration, this.type, this.validators, this.initialValue, this.sequence);
+
+  
 }
 
 class FieldFilterChip {
@@ -75,7 +94,7 @@ class FieldFilterChip {
   final dynamic initialValue;
   final double? sequence;
 
-  const FieldFilterChip({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.options, this.initialValue , this.sequence});
+  const FieldFilterChip({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.options, this.initialValue, this.sequence});
 }
 
 class FieldChoiceChip {
@@ -118,7 +137,6 @@ class FieldDateRangePicker {
   final String? type; // date, time, dateTime, dateTimeLocal, month, week, time
   final double? sequence;
   final List<String>? validators;
-
 
   const FieldDateRangePicker({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.sequence, this.validators});
 }
@@ -203,7 +221,20 @@ class FieldImagePicker {
   final bool? network;
   final String? url;
 
-  const FieldImagePicker({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.options, this.initialValue, this.sequence, this.multiple, this.camera, this.gallery, this.network, this.url});
+  const FieldImagePicker(
+      {this.label,
+      this.hint,
+      this.enabled,
+      this.inputDecoration,
+      this.type,
+      this.options,
+      this.initialValue,
+      this.sequence,
+      this.multiple,
+      this.camera,
+      this.gallery,
+      this.network,
+      this.url});
 }
 
 //*****************************
