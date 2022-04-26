@@ -1,6 +1,5 @@
 // ignore_for_file: omit_local_variable_types
 
-import 'dart:mirrors';
 
 // ignore_for_file: lines_longer_than_80_chars
 /*
@@ -21,37 +20,12 @@ class Lookup {
 
 */
 
-//*****************************
-//  property  definitions
-//*****************************/
-final $properties = <String, dynamic>{
-  'label': 'String',
-  'hint': 'String',
-  'enabled': 'bool',
-  'inputDecorator': 'Map<String, dynamic>',
-  'type': 'String',
-  'validators': 'List<Map<String, dynamic>>',
-  'initialValue': 'String',
-  'options': 'List<Map<String, dynamic>>',
-  'sequence': 'double',
-  'properties': 'List<Map<String, dynamic>>',
-};
 
 class FormBuilder {
   const FormBuilder({this.defs});
   final String? defs;
 }
 
-Map<String, String> getClassProperties(Type type) {
-  final Map<String, String> properties = {};
-  for (final v in reflectClass(type).declarations.values) {
-    final _name = MirrorSystem.getName(v.simpleName);
-    if (v is VariableMirror) {
-      properties[_name] = v.type.reflectedType.toString();
-    }
-  }
-  return properties;
-}
 
 
 
@@ -61,7 +35,7 @@ class FieldText {
   final bool? enabled;
   final Map<String, dynamic>? inputDecoration;
   final String? type; // text, number, email, password, phone, date, time, dateTime, dateTimeLocal, month, week, time, color
-  final List<String>? validators;
+  final List<Map<String, String>>? validators;
   final dynamic initialValue;
   final double? sequence;
 
@@ -75,7 +49,7 @@ class FieldTextArea {
   final bool? enabled;
   final Map<String, dynamic>? inputDecoration;
   final String? type; // text, number, email, password, phone, date, time, dateTime, dateTimeLocal, month, week, time, color
-  final List<String>? validators;
+  final List<Map<String, String>>? validators;
   final dynamic initialValue;
   final double? sequence;
 
@@ -136,7 +110,7 @@ class FieldDateRangePicker {
   final Map<String, dynamic>? inputDecoration;
   final String? type; // date, time, dateTime, dateTimeLocal, month, week, time
   final double? sequence;
-  final List<String>? validators;
+  final List<Map<String, String>>? validators;
 
   const FieldDateRangePicker({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.sequence, this.validators});
 }
@@ -147,7 +121,7 @@ class FieldRangeSlider {
   final bool? enabled;
   final Map<String, dynamic>? inputDecoration;
   final String? type; // text, number, email, password, phone, date, time, dateTime, dateTimeLocal, month, week, time, color
-  final List<String>? validators;
+  final List<Map<String, String>>? validators;
   final dynamic initialValue;
   final double? sequence;
 
@@ -160,7 +134,7 @@ class FieldCheckbox {
   final bool? enabled;
   final Map<String, dynamic>? inputDecoration;
   final String? type; // bool
-  final List<String>? validators;
+  final List<Map<String, String>>? validators;
   final dynamic initialValue;
   final double? sequence;
 
@@ -173,7 +147,7 @@ class FieldSwitch {
   final bool? enabled;
   final Map<String, dynamic>? inputDecoration;
   final String? type; // bool
-  final List<String>? validators;
+  final List<Map<String, String>>? validators;
   final dynamic initialValue;
   final double? sequence;
 
