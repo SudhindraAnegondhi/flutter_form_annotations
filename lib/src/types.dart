@@ -1,4 +1,4 @@
-// ignore_for_file: lines_longer_than_80_chars
+// ignore_for_file: lines_longer_than_80_chars, unused_element
 import 'dart:convert';
 
 enum FieldPropertyType {
@@ -228,4 +228,20 @@ dynamic stringToTypeValue(String type, String value) {
   }
 }
 
-
+extension on String {
+  bool get isEmail => RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+').hasMatch(this);
+  bool get isPhone => RegExp(r'^[0-9]{10}').hasMatch(this);
+  bool get isNumeric => RegExp(r'^[0-9.]*$').hasMatch(this);
+  bool get isName => RegExp(r'^[a-zA-Z.]*$').hasMatch(this);
+  bool get isDate => RegExp(r'^[0-9]{4}-[0-9]{2}-[0-9]{2}$').hasMatch(this);
+  bool get isDateTime => RegExp(r'^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$').hasMatch(this);
+  bool get isTime => RegExp(r'^[0-9]{2}:[0-9]{2}:[0-9]{2}$').hasMatch(this);
+  bool get isDateTimeRange => RegExp(r'^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}-[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$').hasMatch(this);
+  bool get isDateRange => RegExp(r'^[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{4}-[0-9]{2}-[0-9]{2}$').hasMatch(this);
+  // ignore: unnecessary_this, prefer_single_quotes
+  String get capitalize => "${this[0].toUpperCase()}${this.substring(1)}";
+  // ignore: unnecessary_this
+  String get capitalizeWords => this.split(' ').map((word) => word.capitalize).join(' ');
+  // ignore: unnecessary_this
+ 
+}

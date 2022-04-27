@@ -1,31 +1,47 @@
 // ignore_for_file: omit_local_variable_types
-
-
 // ignore_for_file: lines_longer_than_80_chars
-/*
-class GenerateForm {
-  const GenerateForm({this.defs});
-  final String? defs;
-}
-
-class GenerateSubForm {
-  const GenerateSubForm({this.defs});
-  final String? defs;
-}
-
-class Lookup {
-  final String? url;
-  const Lookup({this.url});
-}
-
-*/
 
 
 class FormBuilder {
   const FormBuilder({this.defs});
   final String? defs;
 }
-
+/// *** InputDecoration proeprties ***
+/// [inputDecoration]
+/// {
+/// "label": "label text",
+/// "labelStyle": "label style",
+/// "helperText": "helper text",
+/// "helperStyle": "helper style",
+/// "hintText": "hint text",
+/// "hintStyle": "hint style",
+/// "errorText": "error text",
+/// "errorStyle": "error style",
+/// "errorMaxLines": "int number of lines",
+/// "hasFloatingPlaceholder": "true or false",
+/// "isDense": "true or false",
+/// "contentPadding": "content padding",
+/// "isCollapsed": "true or false",
+/// "border": "border",
+/// "enabled": "true or false",
+/// "counterText": "counter text",
+/// "counterStyle": "counter style",
+/// "filled": "true or false",
+/// "fillColor": "fill color: Color(0xFF00FF00)",
+/// "focusColor": "focus color",
+/// "hoverColor": "hover color",
+/// "errorBorder": "error border",
+/// "focusedBorder": "focused border",
+/// "focusedErrorBorder": "focused error border",
+/// "disabledBorder": "disabled border",
+/// "enabledBorder": "enabled border",
+/// "borderRadius": "border radius",
+/// "prefixIcon": "prefix icon",
+/// "suffixIcon": "suffix icon",
+/// "prefix": "prefix any widget",
+/// "suffix": "suffix any widget",
+/// "counter": "counter",
+/// 
 
 
 
@@ -53,7 +69,7 @@ class FieldTextArea {
   final dynamic initialValue;
   final double? sequence;
 
-  FieldTextArea(this.label, this.maxLines, this.hint, this.enabled, this.inputDecoration, this.type, this.validators, this.initialValue, this.sequence);
+  const FieldTextArea({this.label, this.maxLines, this.hint, this.enabled, this.inputDecoration, this.type, this.validators, this.initialValue, this.sequence});
 
   
 }
