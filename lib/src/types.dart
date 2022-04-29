@@ -75,34 +75,7 @@ String camelCaseToTitleCase(String label) => label
     .map((String s) => s[0].toUpperCase() + s.substring(1).toLowerCase())
     .join(' ');
 
-// defs structure:
-/*
-{"fieldname1":
- { "type":"dartType | object",
-    "enable":true,  //default true
-    "inputDecoration":{},
-    "fieldType":"formFieldType.value ex: 'text'",
-    // for formFieldType.textArea, number of lines is required
-    "numberOfLines":1,
-    // for formFieldType.dateTimePicker,  select date or time mode
-    "datePickerMode":"date" | "time",
-    // for formFieldType.dateRangePicker, select date range mode
-    "dateRange": {"firatDate": date.toIso8601String(), "lastDate":date.toIso8601String()},
-    // for formFieldType.rangeSlider, specify range
-    "sliderRange": {"min":0, "max":100, "divisions": 10, "activeColor":"#F1FCFF2", "inactiveColor":"#000000"},
-    "label":"label",
-    "hint":"hint",
-   "values": [
-     {"value": any value, "label": any label},
-    "properties":  "defs map", // for object type, required
-    "validators": [
-      {"validatorName", custom: "custom validator function", "errorMessage": "error message"},
-   ]
-  }
-  "__sequence": "fieldname1, fieldname2, ..." // for ordering the fields
-}
 
- */
 bool hasSubAttributes(Map<String, dynamic> defs, FormFieldType fieldType, String key) {
   final field = defs[key] as Map<String, dynamic>;
   if (fieldType == FormFieldType.textarea ||

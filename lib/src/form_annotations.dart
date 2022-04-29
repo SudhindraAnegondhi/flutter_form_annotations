@@ -1,11 +1,15 @@
 // ignore_for_file: omit_local_variable_types
 // ignore_for_file: lines_longer_than_80_chars
 
-
 class FormBuilder {
-  const FormBuilder({this.defs});
-  final String? defs;
+  const FormBuilder({
+    this.allowNullorEmpty = false,
+    this.needScaffold = true,
+  });
+  final bool allowNullorEmpty;
+  final bool needScaffold;
 }
+
 /// *** InputDecoration proeprties ***
 /// [inputDecoration]
 /// {
@@ -41,9 +45,7 @@ class FormBuilder {
 /// "prefix": "prefix any widget",
 /// "suffix": "suffix any widget",
 /// "counter": "counter",
-/// 
-
-
+///
 
 class FieldText {
   final String? label;
@@ -70,8 +72,6 @@ class FieldTextArea {
   final double? sequence;
 
   const FieldTextArea({this.label, this.maxLines, this.hint, this.enabled, this.inputDecoration, this.type, this.validators, this.initialValue, this.sequence});
-
-  
 }
 
 class FieldFilterChip {

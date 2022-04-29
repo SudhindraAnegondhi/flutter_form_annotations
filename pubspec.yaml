@@ -1,6 +1,7 @@
 name: flutter_form_annotations
 description: Annotations for flutter_form_generator.
-version: 1.0.0
+version: 0.0.1
+homepage: https://github.com/SudhindraAnegondhi/flutter_form_annotations
 environment:
   sdk: ">=2.16.0 <3.0.0"
 dependencies: 
