@@ -20,6 +20,7 @@ enum FieldPropertyType {
   object,
 }
 
+
 enum FormFieldType {
   text,
   textarea,
@@ -36,6 +37,27 @@ enum FormFieldType {
   rangeSlider,
   object,
 }
+/*
+enum FormFieldType {
+  text,
+  email,
+  password,
+  number,
+  date,
+  datetime,
+  time,
+  filterChip,
+  checkbox,
+  choiceChip,
+  radioGroup,
+  rangeSlider,
+  dropdown,
+  switchField,
+  imagePicker,
+  dropZone
+}
+*/
+
 
 /// Returns TextInputType for the given [FormFieldType].
 String getKeyboardType(String type) {

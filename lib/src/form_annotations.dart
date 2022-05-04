@@ -10,42 +10,38 @@ class FormBuilder {
   final bool needScaffold;
 }
 
-/// *** InputDecoration proeprties ***
-/// [inputDecoration]
-/// {
-/// "label": "label text",
-/// "labelStyle": "label style",
-/// "helperText": "helper text",
-/// "helperStyle": "helper style",
-/// "hintText": "hint text",
-/// "hintStyle": "hint style",
-/// "errorText": "error text",
-/// "errorStyle": "error style",
-/// "errorMaxLines": "int number of lines",
-/// "hasFloatingPlaceholder": "true or false",
-/// "isDense": "true or false",
-/// "contentPadding": "content padding",
-/// "isCollapsed": "true or false",
-/// "border": "border",
-/// "enabled": "true or false",
-/// "counterText": "counter text",
-/// "counterStyle": "counter style",
-/// "filled": "true or false",
-/// "fillColor": "fill color: Color(0xFF00FF00)",
-/// "focusColor": "focus color",
-/// "hoverColor": "hover color",
-/// "errorBorder": "error border",
-/// "focusedBorder": "focused border",
-/// "focusedErrorBorder": "focused error border",
-/// "disabledBorder": "disabled border",
-/// "enabledBorder": "enabled border",
-/// "borderRadius": "border radius",
-/// "prefixIcon": "prefix icon",
-/// "suffixIcon": "suffix icon",
-/// "prefix": "prefix any widget",
-/// "suffix": "suffix any widget",
-/// "counter": "counter",
-///
+class FormGenerator {
+  const FormGenerator({
+    this.allowNullorEmpty = false,
+    this.needScaffold = true,
+  });
+  final bool allowNullorEmpty;
+  final bool needScaffold;
+}
+
+class FieldBuilder {
+  final String? formFieldType;
+  final String? type;
+  final bool? readOnly;
+  final dynamic? defaultValue;
+  final Map<String, dynamic>? inputDecoration;
+  final bool? hide; // false
+  final List<Map<String, dynamic>>? choices;
+  final double? sequence;
+  final List<Map<String, dynamic>>? validators;
+
+  const FieldBuilder({
+    this.formFieldType = 'text',
+    this.type = 'String',
+    this.readOnly = false,
+    this.defaultValue,
+    this.inputDecoration,
+    this.hide = false,
+    this.choices,
+    this.sequence,
+    this.validators,
+  });
+}
 
 class FieldText {
   final String? label;
@@ -87,61 +83,192 @@ class FieldFilterChip {
   const FieldFilterChip({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.options, this.initialValue, this.sequence});
 }
 
-class FieldChoiceChip {
-  final String? label;
-  final String? hint;
-  final bool? enabled;
-  final Map<String, dynamic>? inputDecoration;
-  final String? type; // text, number, email, password, phone, date, time, dateTime, dateTimeLocal, month, week, time, color
-  final List<String>? options;
-  final dynamic initialValue;
-  final double? sequence;
-
-  const FieldChoiceChip({
-    this.label,
-    this.hint,
-    this.enabled,
-    this.inputDecoration,
-    this.type,
-    this.options,
-    this.initialValue,
-    this.sequence,
-  });
-}
-
+/// The range type in the model shoud be a string
+/// with ranges  date (iso strings) delimited by comma.
 class FieldDateTimePicker {
-  final String? label;
-  final String? hint;
-  final bool? enabled;
-  final Map<String, dynamic>? inputDecoration;
-  final String? type; // date, time, dateTime, dateTimeLocal, month, week, time
+  final bool? autofocus; //
+  final String? errorFormatText; // 'Invalid date format'
+  final String? errorInvalidText; // 'Invalid date'
+  final String? fieldHintText; // 'Date'
+  final String? fieldLabelText; // 'Date'
+  final String? selectableDayPredicate;
+  final String? firstDate; // DateTime.toIso8601String()
+  final String? lastDate; // DateTime.toIso8601String()
+  final String? initialDateRange; // DateTime.toIso8601String(), DateTime.toIso8601String()
 
-  const FieldDateTimePicker({this.label, this.hint, this.enabled, this.inputDecoration, this.type});
+  const FieldDateTimePicker(
+      {this.autofocus,
+      this.errorFormatText,
+      this.errorInvalidText,
+      this.fieldHintText,
+      this.fieldLabelText,
+      this.selectableDayPredicate,
+      this.firstDate,
+      this.lastDate,
+      this.initialDateRange});
 }
 
 class FieldDateRangePicker {
   final String? label;
-  final String? hint;
-  final bool? enabled;
-  final Map<String, dynamic>? inputDecoration;
-  final String? type; // date, time, dateTime, dateTimeLocal, month, week, time
-  final double? sequence;
-  final List<Map<String, String>>? validators;
+  final String? helpText; // 'Select a date range'
+  final String? cancelText; // 'Cancel'
+  final String? confirmText; // 'Confirm'
+  final String? saveText; // 'Save'
+  final String? errorFormatText; // 'Invalid date format'
+  final String? errorInvalidText; // 'Invalid date'
+  final String? errorInvalidRangeText; // 'Invalid date range'
+  final String? fieldStartHintText; // 'Start date'
+  final String? fieldEndHintText; // 'End date'
+  final String? fieldStartLabelText; // 'Start date'
+  final String? fieldEndLabelText; // 'End date'
+  final String? locale; // Locale
+  final Map<String, dynamic>? routeSettings; // Class RouteSettings
+  final String? textDirection; // TextDirection.ltr
+  final String? firstDate; // DateTime.toIso8601String()
+  final String? lastDate; // DateTime.toIso8601String()
+  final String? initialDateRange; // DateTime.toIso8601String(), DateTime.toIso8601String()
 
-  const FieldDateRangePicker({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.sequence, this.validators});
+  const FieldDateRangePicker(
+      {this.label,
+      this.helpText,
+      this.cancelText,
+      this.confirmText,
+      this.saveText,
+      this.errorFormatText,
+      this.errorInvalidText,
+      this.errorInvalidRangeText,
+      this.fieldStartHintText,
+      this.fieldEndHintText,
+      this.fieldStartLabelText,
+      this.fieldEndLabelText,
+      this.locale,
+      this.routeSettings,
+      this.textDirection,
+      this.firstDate,
+      this.lastDate,
+      this.initialDateRange});
+}
+
+class FieldChoiceChip {
+  final bool? autofocus;
+  final String? avatar; // widget
+  final String? avatarBorder; // ShapeBorder
+  final String? backgroundColor; // Colors.white
+  final String? clipBehavior; // Clip.none
+  final String? disabledColor; // Colors.grey.shade400
+  final double? elevation; // 0
+  final String? focusNode; // FocusNode()
+  final bool? isEnabled; // true
+  final String? label; // widget
+  final String? labelPadding; // EdgeInsets.symmetric(horizontal: 8.0)
+  final String? labelStyle; // TextStyle(color: Colors.grey.shade700)
+  final String? materialTapTargetSize; // MaterialTapTargetSize.shrinkWrap
+  final String? onSelected; // (bool value) {}
+  final String? padding; // EdgeInsets.all(4.0)
+  final double? pressElevation; // 0
+  final bool? selected; // false
+  final String? selectedColor; // Colors.blue.shade100
+  final String? selectedShadowColor; // Colors.blue.shade100
+  final double sequence;
+  final String? shadowColor; // Colors.blue.shade100
+  final String? shape; // RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0))
+  final String? side; //BorderSide(color: Colors.grey.shade400, width: 1.0)
+  final String? tooltip; // null
+  final String? visulalDensity;
+
+  FieldChoiceChip(
+    this.autofocus,
+    this.avatar,
+    this.avatarBorder,
+    this.backgroundColor,
+    this.clipBehavior,
+    this.disabledColor,
+    this.elevation,
+    this.focusNode,
+    this.isEnabled,
+    this.label,
+    this.labelPadding,
+    this.labelStyle,
+    this.materialTapTargetSize,
+    this.onSelected,
+    this.padding,
+    this.pressElevation,
+    this.selected,
+    this.selectedColor,
+    this.selectedShadowColor,
+    this.sequence,
+    this.shadowColor,
+    this.shape,
+    this.side,
+    this.tooltip,
+    this.visulalDensity,
+  ); // VisualDensity.adaptivePlatformDensity
+
+}
+
+class FieldRadio {
+  final String? type; // type
+  final String? activeColor;
+  final bool? autofocus;
+  final String? fillColor, focusColor, focusNode, groupValue, hoverColor, materialTapTargetSize, mouseCursor, onChanged, overlayColor;
+  final double? splashRadius;
+  final bool? toggleable;
+  final String? value, visualDensity;
+
+  FieldRadio(this.type, this.activeColor, this.autofocus, this.fillColor, this.focusColor, this.focusNode, this.groupValue, this.hoverColor,
+      this.materialTapTargetSize, this.mouseCursor, this.onChanged, this.overlayColor, this.splashRadius, this.toggleable, this.value, this.visualDensity);
 }
 
 class FieldRangeSlider {
-  final String? label;
-  final String? hint;
-  final bool? enabled;
-  final Map<String, dynamic>? inputDecoration;
-  final String? type; // text, number, email, password, phone, date, time, dateTime, dateTimeLocal, month, week, time, color
-  final List<Map<String, String>>? validators;
-  final dynamic initialValue;
-  final double? sequence;
+  final String? activeColor;
+  final int? divisions;
+  final String? inactiveColor;
+  final String? labels; // comma separated labels
+  final int? max, min;
+  final String? onChanged, OnChangeStart, OnChangeEnd;
+  final int? startValue, endValue;
 
-  const FieldRangeSlider({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.validators, this.initialValue, this.sequence});
+  const FieldRangeSlider(
+      {this.activeColor,
+      this.divisions,
+      this.inactiveColor,
+      this.labels,
+      this.max,
+      this.min,
+      this.onChanged,
+      this.OnChangeStart,
+      this.OnChangeEnd,
+      this.startValue,
+      this.endValue});
+}
+
+class FieldSlider {
+  final String? activeColor;
+  final bool? autoFocus;
+  final int? divisions;
+  final String? focusNode;
+  final String? inactiveColor;
+  final String? label;
+  final int? max, min;
+  final String? mouseCursor, onChanged, OnChangeStart, OnChangeEnd;
+  final double? value;
+  final Map<String, dynamic>? sliderTheme;
+
+  FieldSlider(
+      {this.activeColor,
+      this.autoFocus,
+      this.divisions,
+      this.focusNode,
+      this.inactiveColor,
+      this.label,
+      this.max,
+      this.min,
+      this.mouseCursor,
+      this.onChanged,
+      this.OnChangeStart,
+      this.OnChangeEnd,
+      this.value,
+      this.sliderTheme});
 }
 
 class FieldCheckbox {
@@ -163,24 +290,33 @@ class FieldSwitch {
   final bool? enabled;
   final Map<String, dynamic>? inputDecoration;
   final String? type; // bool
-  final List<Map<String, String>>? validators;
   final dynamic initialValue;
   final double? sequence;
+  final String? icon;
+  final int? iconSize;
+  final String? iconTooltip;
+  final String? iconTooltipPosition;
+  final String? iconColor, colorActive, colorHover, colorDisabled, colorFocus, colorError;
 
-  const FieldSwitch({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.validators, this.initialValue, this.sequence});
-}
-
-class FieldRadioGroup {
-  final String? label;
-  final String? hint;
-  final bool? enabled;
-  final Map<String, dynamic>? inputDecoration;
-  final String? type; // bool
-  final List<String>? options;
-  final dynamic initialValue;
-  final double? sequence;
-
-  const FieldRadioGroup({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.options, this.initialValue, this.sequence});
+  const FieldSwitch({
+    this.label,
+    this.hint,
+    this.enabled,
+    this.inputDecoration,
+    this.type,
+    this.initialValue,
+    this.sequence,
+    this.icon, // 'check_box_outline_blank', 'check_box', 'indeterminate_check_box', 'radio_button_unchecked', 'radio_button_checked', 'indeterminate_radio_button'
+    this.iconSize,
+    this.iconTooltip,
+    this.iconTooltipPosition,
+    this.iconColor,
+    this.colorActive,
+    this.colorHover,
+    this.colorDisabled,
+    this.colorFocus,
+    this.colorError,
+  });
 }
 
 class FieldDropdown {
@@ -194,37 +330,6 @@ class FieldDropdown {
   final double? sequence;
 
   const FieldDropdown({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.options, this.initialValue, this.sequence});
-}
-
-class FieldImagePicker {
-  final String? label;
-  final String? hint;
-  final bool? enabled;
-  final Map<String, dynamic>? inputDecoration;
-  final String? type; // enum, text, number, email, password, phone, date, time, dateTime, dateTimeLocal, month, week, time, color
-  final List<Map<String, dynamic>>? options;
-  final dynamic initialValue;
-  final double? sequence;
-  final bool? multiple;
-  final bool? camera;
-  final bool? gallery;
-  final bool? network;
-  final String? url;
-
-  const FieldImagePicker(
-      {this.label,
-      this.hint,
-      this.enabled,
-      this.inputDecoration,
-      this.type,
-      this.options,
-      this.initialValue,
-      this.sequence,
-      this.multiple,
-      this.camera,
-      this.gallery,
-      this.network,
-      this.url});
 }
 
 //*****************************
@@ -250,8 +355,7 @@ final annotations = <String, Type>{
   'FieldRangeSlider': FieldRangeSlider,
   'FieldCheckbox': FieldCheckbox,
   'FieldSwitch': FieldSwitch,
-  'FieldRadioGroup': FieldRadioGroup,
+  'FieldRadio': FieldRadio,
   'FieldDropdown': FieldDropdown,
-  'FieldImagePicker': FieldImagePicker,
   'FieldClass': FieldClass,
 };
