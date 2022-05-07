@@ -1,6 +1,10 @@
 // ignore_for_file: omit_local_variable_types
 // ignore_for_file: lines_longer_than_80_chars
 
+/// @FormBuilder is a decorator used to generate a form from a class.
+/// [allowNullorEmpty] if set to true allows the form to save with empty or null values.
+/// [needScaffold] if set to true will generate a scaffold with a form, otherwise the form will be generated
+/// as a widget.
 class FormBuilder {
   const FormBuilder({
     this.allowNullorEmpty = false,
@@ -10,6 +14,12 @@ class FormBuilder {
   final bool needScaffold;
 }
 
+/*
+
+/// @FormGenerator() is a decorator used to generate a form from a class.
+/// [allowNullorEmpty] if set to true allows the form to save with empty or null values.
+/// [needScaffold] if set to true will generate a scaffold with a form, otherwise the form will be generated
+/// as a widget.
 class FormGenerator {
   const FormGenerator({
     this.allowNullorEmpty = false,
@@ -18,7 +28,8 @@ class FormGenerator {
   final bool allowNullorEmpty;
   final bool needScaffold;
 }
-
+*/
+/*
 class FieldBuilder {
   final String? formFieldType;
   final String? type;
@@ -42,20 +53,61 @@ class FieldBuilder {
     this.validators,
   });
 }
-
+*/
+/// @FieldText() decorator is used to decorate each Text, Number, Email, password or Phone
+/// field in the form.
+/// All properties are optional.
 class FieldText {
   final String? label;
   final String? hint;
   final bool? enabled;
+  final bool? readOnly;
+
+  /// true for password field
+  final bool? obscureText;
+
+  /// [inputDecoration] map of properties tto decorate the field.
+  /// for example {
+  ///   'labelText': 'Label Text',
+  ///   'hintText': 'Hint Text',
+  ///   'errorText': 'Error Text',
+  ///   'suffixIcon': Icon(Icons.search),
+  ///   'border: OutlineInputBorder(),
+  /// }
   final Map<String, dynamic>? inputDecoration;
-  final String? type; // text, number, email, password, phone, date, time, dateTime, dateTimeLocal, month, week, time, color
+
+  /// [type] Default is 'text', can be 'number', 'email', 'password', 'phone'
+  final String? type;
+
+  /// Several predefined validators can be used to validate the field.
+  /// For example, [required] , [email]  please see the validators reference
+  /// If you want to use your own validator, you can use [custom] type
+  /// and add your own validator function. The function must return a null
+  /// if the field is valid or a string with the error message if the field is invalid.
   final List<Map<String, String>>? validators;
+
+  /// Default value of the field
   final dynamic initialValue;
+
+  /// The sequence of the field in the form.
+  /// If no sequence is provided, no specific order will be applied to the fields.
   final double? sequence;
 
-  const FieldText({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.validators, this.initialValue, this.sequence});
+  const FieldText(
+      {this.label,
+      this.hint,
+      this.enabled,
+      this.readOnly,
+      this.obscureText,
+      this.inputDecoration,
+      this.type,
+      this.validators,
+      this.initialValue,
+      this.sequence});
 }
 
+/// @FieldTextArea() decorator is used to decorate each TextArea field in the form.
+/// All properties are optional.
 class FieldTextArea {
   final String? label;
   final int? maxLines;
@@ -83,9 +135,12 @@ class FieldFilterChip {
   const FieldFilterChip({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.options, this.initialValue, this.sequence});
 }
 
-/// The range type in the model shoud be a string
-/// with ranges  date (iso strings) delimited by comma.
-class FieldDateTimePicker {
+/// @FieldDatePicker() decorator. Use this with DateTime fields to input dates.
+/// All properties are optional.
+/// [initialDate] is set to current date if not provided.
+/// [firstDate] is set to  current date if not provided.
+/// [lastDate] is set to firstDate if provided else  current date if not provided.
+class FieldDatePicker {
   final bool? autofocus; //
   final String? errorFormatText; // 'Invalid date format'
   final String? errorInvalidText; // 'Invalid date'
@@ -94,9 +149,8 @@ class FieldDateTimePicker {
   final String? selectableDayPredicate;
   final String? firstDate; // DateTime.toIso8601String()
   final String? lastDate; // DateTime.toIso8601String()
-  final String? initialDateRange; // DateTime.toIso8601String(), DateTime.toIso8601String()
-
-  const FieldDateTimePicker(
+  final String? initialDate; // DateTime.toIso8601String()
+  const FieldDatePicker(
       {this.autofocus,
       this.errorFormatText,
       this.errorInvalidText,
@@ -105,9 +159,16 @@ class FieldDateTimePicker {
       this.selectableDayPredicate,
       this.firstDate,
       this.lastDate,
-      this.initialDateRange});
+      this.initialDate});
 }
 
+/// @FieldDateRangePicker() allows picking a range of dates
+/// All properties are optional. All dates are 'yyyy-MM-dd'
+/// [initialDate] is set to current date if not provided.
+/// [firstDate] is set to 25 years before current date if not provided.
+/// [lastDate] is set to 25 years after current date if not provided.
+/// [initialDateRange] ia string in "yyyy-MM-dd, yyyy-MM-dd" format specifies the initial date range.
+/// if not provided it is set to "[firstDate], [lastDate]""
 class FieldDateRangePicker {
   final String? label;
   final String? helpText; // 'Select a date range'
@@ -350,7 +411,7 @@ final annotations = <String, Type>{
   'FieldTextArea': FieldTextArea,
   'FieldFilterChip': FieldFilterChip,
   'FieldChoiceChip': FieldChoiceChip,
-  'FieldDateTimePicker': FieldDateTimePicker,
+  'FieldDatePicker': FieldDatePicker,
   'FieldDateRangePicker': FieldDateRangePicker,
   'FieldRangeSlider': FieldRangeSlider,
   'FieldCheckbox': FieldCheckbox,

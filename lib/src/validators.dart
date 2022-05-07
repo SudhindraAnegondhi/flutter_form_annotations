@@ -1,9 +1,10 @@
+// ignore_for_file: prefer_single_quotes, omit_local_variable_types, prefer_final_locals, lines_longer_than_80_chars
+
 
 const Map<String, String> validatorsMap = {
   'required': '''
         (value?.isEmpty ?? false) ?  'This field is required' : null;
      ''',
-
   'email': '''
       (value?.isEmail ?? false )? null : 'Please enter a valid email';
     ''',
@@ -38,3 +39,4 @@ const Map<String, String> validatorsMap = {
     (arg) => (value?.isEmpty ?? false)  || (value?.length ?? 0) < arg || (value?.length ?? 0) > arg2 ? 'Please enter a value between \${arg,split(':').first} and \$[arg,split(':').last}' : null;
       ''',
 };
+
