@@ -5,6 +5,8 @@
 /// [allowNullorEmpty] if set to true allows the form to save with empty or null values.
 /// [needScaffold] if set to true will generate a scaffold with a form, otherwise the form will be generated
 /// as a widget.
+import 'form_validator.dart' show FieldValidator;
+
 class FormBuilder {
   const FormBuilder({
     this.allowNullorEmpty = false,
@@ -84,7 +86,7 @@ class FieldText {
   /// If you want to use your own validator, you can use [custom] type
   /// and add your own validator function. The function must return a null
   /// if the field is valid or a string with the error message if the field is invalid.
-  final List<Map<String, String>>? validators;
+  final List<Map<FieldValidator, dynamic>>? validators;
 
   /// Default value of the field
   final dynamic initialValue;
@@ -115,7 +117,7 @@ class FieldTextArea {
   final bool? enabled;
   final Map<String, dynamic>? inputDecoration;
   final String? type; // text, number, email, password, phone, date, time, dateTime, dateTimeLocal, month, week, time, color
-  final List<Map<String, String>>? validators;
+  final List<Map<FieldValidator, dynamic>>? validators;
   final dynamic initialValue;
   final double? sequence;
 

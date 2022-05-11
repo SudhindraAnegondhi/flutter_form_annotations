@@ -2,7 +2,7 @@
 
 import 'validations.dart' as validations;
 
-class FormValidators {
+class FormValidator {
   static String? email(String? value, {String? message}) =>
       value == null || value.isEmpty || validations.isEmail(value) ? null : message ?? 'Please enter a valid email';
   static String? phone(String? value, {String? message}) =>
@@ -31,7 +31,7 @@ class FormValidators {
   static String? notNull(String? value, {String? message}) => value == null ? message ?? 'This field is required to have a value' : null;
 
   static String? match(String? value, String pattern, {String? message}) =>
-      value == null || value.isEmpty || validations.matches(value, pattern) ? null : message ?? 'The pattern "$pattern" does not match the input';
+      value == null || value.isEmpty || validations.matches(value, pattern) == true ? null : message ?? 'The pattern "$pattern" does not match the input';
   static String? url(
     String? value, {
     String? message,
@@ -40,14 +40,60 @@ class FormValidators {
     bool requireProtocol = false,
     bool allowUnderscore = false,
     List<String> hostWhitelist = const [],
-    List<String> hostBlacklist = const[],
+    List<String> hostBlacklist = const [],
   }) =>
-      value == null || value.isEmpty || validations.isURL(value,
-      protocols: protocols,
-      requireTld: requireTld,
-      requireProtocol: requireProtocol,
-      allowUnderscore: allowUnderscore,
-      hostWhitelist: hostWhitelist,
-      hostBlacklist: hostBlacklist) ? null : message ?? 'Please enter a valid URL';
+      value == null ||
+              value.isEmpty ||
+              validations.isURL(value,
+                  protocols: protocols,
+                  requireTld: requireTld,
+                  requireProtocol: requireProtocol,
+                  allowUnderscore: allowUnderscore,
+                  hostWhitelist: hostWhitelist,
+                  hostBlacklist: hostBlacklist)
+          ? null
+          : message ?? 'Please enter a valid URL';
 
+  static String? emailOrUrl(String? value, {String? message}) =>
+      value == null || value.isEmpty || validations.isEmail(value) || validations.isURL(value) ? null : message ?? 'Please enter a valid email or URL';
+
+  static String? emailOrPhone(String? value, {String? message}) => value == null || value.isEmpty || validations.isEmail(value) || validations.isNumeric(value)
+      ? null
+      : message ?? 'Please enter a valid email or phone number';
+
+  static String? creditCard(String? value, {String? message}) =>
+      value == null || value.isEmpty || validations.isCreditCard(value) ? null : message ?? 'Please enter a valid credit card number';
 }
+
+enum FieldValidator {
+  email,
+  phone,
+  numeric,
+  date,
+  name,
+  min,
+  max,
+  required,
+  notNull,
+  match,
+  url,
+  emailOrUrl,
+  emailOrPhone,
+  creditCard,
+  /// A custom validator that takes a function named ##custom## that returns a string
+  /// the function is passed the value and the arguments (if any)
+  /// the function should return null if the value is valid
+  /// you can add as many custom functions as you want
+  /// example
+  /// custom((String? value, {String? message}) {)) {
+  ///  if (value == null || value.isEmpty) {
+  ///   return message ??'This field is required';
+  /// }
+  custom,
+  fixedLength,
+  minLength,
+  maxLength,
+  range,
+}
+
+

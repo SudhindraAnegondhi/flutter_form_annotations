@@ -48,7 +48,7 @@ bool contains(String str, seed) {
 }
 
 /// check if string [str] matches the [pattern].
-bool doesMatch(String str, String pattern) => RegExp(pattern).hasMatch(str);
+bool matches(String str, String pattern) => RegExp(pattern).hasMatch(str);
 
 /// check if the string [str] is an email
 bool isEmail(String str) => _email.hasMatch(str.toLowerCase());
