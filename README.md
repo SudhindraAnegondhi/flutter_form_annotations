@@ -12,6 +12,8 @@ Please note the model class should include  ```toJson```  (returning a map of th
 You may also chose to use either 
 -  the [json_serializable](https://pub.dev/packages/json_serializable) decorator, in which case  you would need to import [json_annotations](https://pub.dev/packages/json_annotation) package, as well. OR
 -  Use the [freezed](https://pub.dev/packages/freezed) package, or any other package that generates the required ```toJson``` and ```fromJson``` class methods.
+  
+The example uses **json_serializable** package.
 
 ### Usage
 
@@ -29,7 +31,7 @@ class Address {
 
     Map<String, dynamic> toMap() =>  {
         "street": street,
-        "city"
+        "city": city,
     }
 }
 

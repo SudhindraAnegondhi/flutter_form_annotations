@@ -1,140 +1,131 @@
 // ignore_for_file: omit_local_variable_types
 // ignore_for_file: lines_longer_than_80_chars
-
-/// @FormBuilder is a decorator used to generate a form from a class.
-/// [allowNullorEmpty] if set to true allows the form to save with empty or null values.
-/// [needScaffold] if set to true will generate a scaffold with a form, otherwise the form will be generated
-/// as a widget.
 import 'form_validator.dart' show FieldValidator;
 
-class FormBuilder {
-  const FormBuilder({
-    this.allowNullorEmpty = false,
-    this.needScaffold = true,
-  });
-  final bool allowNullorEmpty;
-  final bool needScaffold;
-}
+class FieldCheckbox {
+  /// Optional label.
+  final String? label;
 
-/*
+  /// Optional hint.
+  final String? hint;
 
-/// @FormGenerator() is a decorator used to generate a form from a class.
-/// [allowNullorEmpty] if set to true allows the form to save with empty or null values.
-/// [needScaffold] if set to true will generate a scaffold with a form, otherwise the form will be generated
-/// as a widget.
-class FormGenerator {
-  const FormGenerator({
-    this.allowNullorEmpty = false,
-    this.needScaffold = true,
-  });
-  final bool allowNullorEmpty;
-  final bool needScaffold;
-}
-*/
-/*
-class FieldBuilder {
-  final String? formFieldType;
-  final String? type;
-  final bool? readOnly;
-  final dynamic? defaultValue;
+  /// Field enabled. Default is 'true'.
+  final bool? enabled;
+  //// Input Decoration. With same propertes as InputDecoration
+  /// specified as a source map:
+  /// {
+  ///  'labelText': 'Label',
+  ///  'hintText': 'Hint',
+  ///   suffixIcon: 'Icon(Icons.arrow_drop_down'),
+  /// } ** Note the values are quoted.
   final Map<String, dynamic>? inputDecoration;
-  final bool? hide; // false
-  final List<Map<String, dynamic>>? choices;
-  final double? sequence;
-  final List<Map<String, dynamic>>? validators;
 
-  const FieldBuilder({
-    this.formFieldType = 'text',
-    this.type = 'String',
-    this.readOnly = false,
-    this.defaultValue,
-    this.inputDecoration,
-    this.hide = false,
-    this.choices,
+  final String? type; //// Type of the field.
+  /// Validation rules.
+  /// [
+  ///  { FieldValidator.required: {'message': 'Fill this or else} },
+  ///  { FieldValidator.minLength: {'length': 5, 'message': 'Too short'} },
+  ///  {'FieldValidator.custom': {'function': 'String? custom(value, required int length) => value.length < 5 ? "Too
+  ///   short" : null}, 'length': 5, } },
+  /// ]
+  /// Note: The validator is a list of maps.
+  /// You may specify multiple validators and multiple custom validators. Please note
+  /// that each custom validator function must return null if the value is valid else a string
+  /// and is named custom.
+  final List<Map<FieldValidator, dynamic>>? validators;
+
+  /// The default value of the field.
+  final dynamic initialValue;
+
+  /// The sequence of presentation of the field in the form
+  final double? sequence;
+
+  const FieldCheckbox({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.validators, this.initialValue, this.sequence});
+}
+
+class FieldChoiceChip {
+  /// Optional. default is 'false'
+  final bool? autofocus;
+  /// widget for avatar within quotes
+  final String? avatar; // widget
+  /// Border around avatar
+  /// ShapeBorder, within quotes
+  final String? avatarBorder; // ShapeBorder
+  final String? backgroundColor; // Colors.white
+  final String? clipBehavior; // Clip.none
+  final String? disabledColor; // Colors.grey.shade400
+  final double? elevation; // 0
+  final String? focusNode; // FocusNode()
+  final bool? isEnabled; // true
+  final String? label; // widget
+  final String? labelPadding; // EdgeInsets.symmetric(horizontal: 8.0)
+  final String? labelStyle; // TextStyle(color: Colors.grey.shade700)
+  final String? materialTapTargetSize; // MaterialTapTargetSize.shrinkWrap
+  final String? onSelected; // (bool value) {}
+  final String? padding; // EdgeInsets.all(4.0)
+  final double? pressElevation; // 0
+  final bool? selected; // false
+  final String? selectedColor; // Colors.blue.shade100
+  final String? selectedShadowColor; // Colors.blue.shade100
+  final double sequence;
+  final String? shadowColor; // Colors.blue.shade100
+  final String? shape; // RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0))
+  final String? side; //BorderSide(color: Colors.grey.shade400, width: 1.0)
+  final String? tooltip; // null
+  final String? visulalDensity;
+
+  FieldChoiceChip(
+    /// Boolean value.
+    this.autofocus,
+    /// Widget to display as the avatar.
+    /// specified within quotes.
+    this.avatar,
+    /// Border to draw around the avatar.
+    /// ex: 'BoxBorder.all(width: 2.0, color: Colors.grey.shade400)'
+    this.avatarBorder,
+    /// Background color of the chip.
+    /// specified within quotes.
+    this.backgroundColor,
+    /// How to clip the chip's content.
+    /// ex:'Clip.none'
+    this.clipBehavior,
+    this.disabledColor,
+    /// integer value
+    /// ex: 5
+    this.elevation,
+    this.focusNode,
+    /// Boolean value. Default is 'true'.
+    this.isEnabled,
+    this.label,
+    this.labelPadding,
+    this.labelStyle,
+    this.materialTapTargetSize,
+    this.onSelected,
+    this.padding,
+    this.pressElevation,
+    this.selected,
+    this.selectedColor,
+    this.selectedShadowColor,
     this.sequence,
-    this.validators,
-  });
-}
-*/
-/// @FieldText() decorator is used to decorate each Text, Number, Email, password or Phone
-/// field in the form.
-/// All properties are optional.
-class FieldText {
-  final String? label;
-  final String? hint;
-  final bool? enabled;
-  final bool? readOnly;
+    this.shadowColor,
+    this.shape,
+    this.side,
+    this.tooltip,
+    this.visulalDensity,
+  ); // VisualDensity.adaptivePlatformDensity
 
-  /// true for password field
-  final bool? obscureText;
-
-  /// [inputDecoration] map of properties tto decorate the field.
-  /// for example {
-  ///   'labelText': 'Label Text',
-  ///   'hintText': 'Hint Text',
-  ///   'errorText': 'Error Text',
-  ///   'suffixIcon': Icon(Icons.search),
-  ///   'border: OutlineInputBorder(),
-  /// }
-  final Map<String, dynamic>? inputDecoration;
-
-  /// [type] Default is 'text', can be 'number', 'email', 'password', 'phone'
-  final String? type;
-
-  /// Several predefined validators can be used to validate the field.
-  /// For example, [required] , [email]  please see the validators reference
-  /// If you want to use your own validator, you can use [custom] type
-  /// and add your own validator function. The function must return a null
-  /// if the field is valid or a string with the error message if the field is invalid.
-  final List<Map<FieldValidator, dynamic>>? validators;
-
-  /// Default value of the field
-  final dynamic initialValue;
-
-  /// The sequence of the field in the form.
-  /// If no sequence is provided, no specific order will be applied to the fields.
-  final double? sequence;
-
-  const FieldText(
-      {this.label,
-      this.hint,
-      this.enabled,
-      this.readOnly,
-      this.obscureText,
-      this.inputDecoration,
-      this.type,
-      this.validators,
-      this.initialValue,
-      this.sequence});
 }
 
-/// @FieldTextArea() decorator is used to decorate each TextArea field in the form.
-/// All properties are optional.
-class FieldTextArea {
-  final String? label;
-  final int? maxLines;
-  final String? hint;
-  final bool? enabled;
-  final Map<String, dynamic>? inputDecoration;
-  final String? type; // text, number, email, password, phone, date, time, dateTime, dateTimeLocal, month, week, time, color
-  final List<Map<FieldValidator, dynamic>>? validators;
-  final dynamic initialValue;
-  final double? sequence;
+//*****************************
+//  Nested field
+//*****************************/
 
-  const FieldTextArea({this.label, this.maxLines, this.hint, this.enabled, this.inputDecoration, this.type, this.validators, this.initialValue, this.sequence});
-}
-
-class FieldFilterChip {
+class FieldClass {
+  final List<Map<String, dynamic>>? properties; // {annotation, type, label, hint, enabled, inputDecoration, validators, initialValue}
   final String? label;
   final String? hint;
-  final bool? enabled;
-  final Map<String, dynamic>? inputDecoration;
-  final String? type; // text, number, email, password, phone, date, time, dateTime, dateTimeLocal, month, week, time, color
-  final List<String>? options;
-  final dynamic initialValue;
   final double? sequence;
-
-  const FieldFilterChip({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.options, this.initialValue, this.sequence});
+  const FieldClass({this.properties, this.label, this.hint, this.sequence});
 }
 
 /// @FieldDatePicker() decorator. Use this with DateTime fields to input dates.
@@ -212,61 +203,30 @@ class FieldDateRangePicker {
       this.initialDateRange});
 }
 
-class FieldChoiceChip {
-  final bool? autofocus;
-  final String? avatar; // widget
-  final String? avatarBorder; // ShapeBorder
-  final String? backgroundColor; // Colors.white
-  final String? clipBehavior; // Clip.none
-  final String? disabledColor; // Colors.grey.shade400
-  final double? elevation; // 0
-  final String? focusNode; // FocusNode()
-  final bool? isEnabled; // true
-  final String? label; // widget
-  final String? labelPadding; // EdgeInsets.symmetric(horizontal: 8.0)
-  final String? labelStyle; // TextStyle(color: Colors.grey.shade700)
-  final String? materialTapTargetSize; // MaterialTapTargetSize.shrinkWrap
-  final String? onSelected; // (bool value) {}
-  final String? padding; // EdgeInsets.all(4.0)
-  final double? pressElevation; // 0
-  final bool? selected; // false
-  final String? selectedColor; // Colors.blue.shade100
-  final String? selectedShadowColor; // Colors.blue.shade100
-  final double sequence;
-  final String? shadowColor; // Colors.blue.shade100
-  final String? shape; // RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0))
-  final String? side; //BorderSide(color: Colors.grey.shade400, width: 1.0)
-  final String? tooltip; // null
-  final String? visulalDensity;
+class FieldDropdown {
+  final String? label;
+  final String? hint;
+  final bool? enabled;
+  final Map<String, dynamic>? inputDecoration;
+  final String? type; // enum, text, number, email, password, phone, date, time, dateTime, dateTimeLocal, month, week, time, color
+  final List<Map<String, dynamic>>? options;
+  final dynamic initialValue;
+  final double? sequence;
 
-  FieldChoiceChip(
-    this.autofocus,
-    this.avatar,
-    this.avatarBorder,
-    this.backgroundColor,
-    this.clipBehavior,
-    this.disabledColor,
-    this.elevation,
-    this.focusNode,
-    this.isEnabled,
-    this.label,
-    this.labelPadding,
-    this.labelStyle,
-    this.materialTapTargetSize,
-    this.onSelected,
-    this.padding,
-    this.pressElevation,
-    this.selected,
-    this.selectedColor,
-    this.selectedShadowColor,
-    this.sequence,
-    this.shadowColor,
-    this.shape,
-    this.side,
-    this.tooltip,
-    this.visulalDensity,
-  ); // VisualDensity.adaptivePlatformDensity
+  const FieldDropdown({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.options, this.initialValue, this.sequence});
+}
 
+class FieldFilterChip {
+  final String? label;
+  final String? hint;
+  final bool? enabled;
+  final Map<String, dynamic>? inputDecoration;
+  final String? type; // text, number, email, password, phone, date, time, dateTime, dateTimeLocal, month, week, time, color
+  final List<String>? options;
+  final dynamic initialValue;
+  final double? sequence;
+
+  const FieldFilterChip({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.options, this.initialValue, this.sequence});
 }
 
 class FieldRadio {
@@ -334,19 +294,6 @@ class FieldSlider {
       this.sliderTheme});
 }
 
-class FieldCheckbox {
-  final String? label;
-  final String? hint;
-  final bool? enabled;
-  final Map<String, dynamic>? inputDecoration;
-  final String? type; // bool
-  final List<Map<String, String>>? validators;
-  final dynamic initialValue;
-  final double? sequence;
-
-  const FieldCheckbox({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.validators, this.initialValue, this.sequence});
-}
-
 class FieldSwitch {
   final String? label;
   final String? hint;
@@ -382,43 +329,84 @@ class FieldSwitch {
   });
 }
 
-class FieldDropdown {
+/// @FieldText() decorator is used to decorate each Text, Number, Email, password or Phone
+/// field in the form.
+/// All properties are optional.
+class FieldText {
   final String? label;
   final String? hint;
   final bool? enabled;
+  final bool? readOnly;
+
+  /// true for password field
+  final bool? obscureText;
+
+  /// [inputDecoration] map of properties tto decorate the field.
+  /// for example {
+  ///   'labelText': 'Label Text',
+  ///   'hintText': 'Hint Text',
+  ///   'errorText': 'Error Text',
+  ///   'suffixIcon': Icon(Icons.search),
+  ///   'border: OutlineInputBorder(),
+  /// }
   final Map<String, dynamic>? inputDecoration;
-  final String? type; // enum, text, number, email, password, phone, date, time, dateTime, dateTimeLocal, month, week, time, color
-  final List<Map<String, dynamic>>? options;
+
+  /// [type] Default is 'text', can be 'number', 'email', 'password', 'phone'
+  final String? type;
+
+  /// Several predefined validators can be used to validate the field.
+  /// For example, [required] , [email]  please see the validators reference
+  /// If you want to use your own validator, you can use [custom] type
+  /// and add your own validator function. The function must return a null
+  /// if the field is valid or a string with the error message if the field is invalid.
+  final List<Map<FieldValidator, dynamic>>? validators;
+
+  /// Default value of the field
+  final dynamic initialValue;
+
+  /// The sequence of the field in the form.
+  /// If no sequence is provided, no specific order will be applied to the fields.
+  final double? sequence;
+
+  const FieldText(
+      {this.label,
+      this.hint,
+      this.enabled,
+      this.readOnly,
+      this.obscureText,
+      this.inputDecoration,
+      this.type,
+      this.validators,
+      this.initialValue,
+      this.sequence});
+}
+
+/// @FieldTextArea() decorator is used to decorate each TextArea field in the form.
+/// All properties are optional.
+class FieldTextArea {
+  final String? label;
+  final int? maxLines;
+  final String? hint;
+  final bool? enabled;
+  final Map<String, dynamic>? inputDecoration;
+  final String? type; // text, number, email, password, phone, date, time, dateTime, dateTimeLocal, month, week, time, color
+  final List<Map<FieldValidator, dynamic>>? validators;
   final dynamic initialValue;
   final double? sequence;
 
-  const FieldDropdown({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.options, this.initialValue, this.sequence});
+  const FieldTextArea({this.label, this.maxLines, this.hint, this.enabled, this.inputDecoration, this.type, this.validators, this.initialValue, this.sequence});
 }
 
-//*****************************
-//  Nested field
-//*****************************/
+/// @FormBuilder is the decorator used to generate a form from a class.
+/// [allowNullorEmpty] if set to true allows the form to save with empty or null values.
+/// [needScaffold] if set to true will generate a scaffold with a form, otherwise the form will be generated
+/// as a widget.
 
-class FieldClass {
-  final List<Map<String, dynamic>>? properties; // {annotation, type, label, hint, enabled, inputDecoration, validators, initialValue}
-  final String? label;
-  final String? hint;
-  final double? sequence;
-  const FieldClass({this.properties, this.label, this.hint, this.sequence});
+class FormBuilder {
+  final bool allowNullorEmpty;
+  final bool needScaffold;
+  const FormBuilder({
+    this.allowNullorEmpty = false,
+    this.needScaffold = true,
+  });
 }
-
-// annotations table to generate type checkers
-final annotations = <String, Type>{
-  'FieldText': FieldText,
-  'FieldTextArea': FieldTextArea,
-  'FieldFilterChip': FieldFilterChip,
-  'FieldChoiceChip': FieldChoiceChip,
-  'FieldDatePicker': FieldDatePicker,
-  'FieldDateRangePicker': FieldDateRangePicker,
-  'FieldRangeSlider': FieldRangeSlider,
-  'FieldCheckbox': FieldCheckbox,
-  'FieldSwitch': FieldSwitch,
-  'FieldRadio': FieldRadio,
-  'FieldDropdown': FieldDropdown,
-  'FieldClass': FieldClass,
-};

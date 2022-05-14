@@ -11,7 +11,7 @@ final RegExp _surrogatePairsRegExp = RegExp(r'[\uD800-\uDBFF][\uDC00-\uDFFF]');
 final RegExp _name = RegExp(r'^[a-zA-Z\s.]+$');
 final RegExp _alpha = RegExp(r'^[a-zA-Z]+$');
 final RegExp _alphanumeric = RegExp(r'^[a-zA-Z0-9]+$');
-final RegExp _numeric = RegExp(r'^-?[0-9]+$');
+final RegExp _numeric = RegExp(r'^-?[0-9.]+$');
 final RegExp _int = RegExp(r'^(?:-?(?:0|[1-9][0-9]*))$');
 final RegExp _float = RegExp(r'^(?:-?(?:[0-9]+))?(?:\.[0-9]*)?(?:[eE][\+\-]?(?:[0-9]+))?$');
 final RegExp _hexadecimal = RegExp(r'^[0-9a-fA-F]+$');
@@ -37,6 +37,30 @@ final RegExp _ascii = RegExp(r'^[\x00-\x7F]+$');
 final RegExp _fullWidth = RegExp(r'[^\u0020-\u007E\uFF61-\uFF9F\uFFA0-\uFFDC\uFFE8-\uFFEE0-9a-zA-Z]');
 final RegExp _halfWidth = RegExp(r'[\u0020-\u007E\uFF61-\uFF9F\uFFA0-\uFFDC\uFFE8-\uFFEE0-9a-zA-Z]');
 
+/// check if the string is alpha 
+bool isAlpha(String str) {
+  return _alpha.hasMatch(str);
+}
+
+/// check if the string is ascii
+bool isAscii(String str) {
+  return _ascii.hasMatch(str);
+}
+
+/// check if the string is alphanumeric
+bool isAlphanumeric(String str) {
+  return _alphanumeric.hasMatch(str);
+}
+
+/// bool check if the string is numeric
+bool isNumeric(String str) {
+  return _numeric.hasMatch(str);
+}
+
+/// check if the string is hexadecimal
+bool isHexadecimal(String str) {
+  return _hexadecimal.hasMatch(str);
+}
 /// check if the string matches the comparison
 bool equals(String? str, comparison) {
   return str == comparison.toString();
@@ -208,17 +232,9 @@ bool isFQDN(
   return true;
 }
 
-/// check if the string [str] contains only letters (a-zA-Z).
-bool isAlpha(String str) => _alpha.hasMatch(str);
 
 /// check if the string [str] contains only letters or spaces or  periods
 bool isName(String str) => _name.hasMatch(str);
-
-/// check if the string [str] contains only numbers
-bool isNumeric(String str) => _numeric.hasMatch(str);
-
-/// check if the string [str] contains only letters and numbers
-bool isAlphanumeric(String str) => _alphanumeric.hasMatch(str);
 
 /// check if a string [str] is base64 encoded
 bool isBase64(String str) => _base64.hasMatch(str);
@@ -229,17 +245,14 @@ bool isInt(String str) => _int.hasMatch(str);
 /// check if the string [str] is a float
 bool isFloat(String str) => _float.hasMatch(str);
 
-/// check if the string  [str]is a hexadecimal number
-bool isHexadecimal(String str) => _hexadecimal.hasMatch(str);
-
 /// check if the string [str] is a hexadecimal color
 bool isHexColor(String str) => _hexcolor.hasMatch(str);
 
 /// check if the string [str] is lowercase
-bool isLowercase(String str) => str == str.toLowerCase();
+bool isLowerCase(String str) => str == str.toLowerCase();
 
 /// check if the string [str] is uppercase
-bool isUppercase(String str) => str == str.toUpperCase();
+bool isUpperCase(String str) => str == str.toUpperCase();
 
 /// check if the string [str] is a number that's divisible by another
 ///
@@ -329,6 +342,33 @@ bool isBefore(String? str, [date]) {
   }
 
   return str_date.isBefore(date as DateTime);
+}
+
+bool isDateRange(String? str, [min, max]) {
+  if (min == null) {
+    min = DateTime.now();
+  } else if (isDate(min as String)) {
+    min = DateTime.parse(min);
+  } else {
+    return false;
+  }
+
+  if (max == null) {
+    max = DateTime.now();
+  } else if (isDate(max as String)) {
+    max = DateTime.parse(max);
+  } else {
+    return false;
+  }
+
+  DateTime str_date;
+  try {
+    str_date = DateTime.parse(str!);
+  } catch (e) {
+    return false;
+  }
+
+  return str_date.isAfter(min as DateTime) && str_date.isBefore(max as DateTime);
 }
 
 /// check if the string is in a array of allowed values
@@ -427,8 +467,7 @@ bool isJSON(String str) {
 /// check if the string contains one or more multibyte chars
 bool isMultibyte(String str) => _multibyte.hasMatch(str);
 
-/// check if the string contains ASCII chars only
-bool isAscii(String str) => _ascii.hasMatch(str);
+
 
 /// check if the string contains any full-width chars
 bool isFullWidth(String str) => _fullWidth.hasMatch(str);
