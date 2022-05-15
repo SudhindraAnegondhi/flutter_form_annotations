@@ -46,6 +46,7 @@ class FieldCheckbox {
 class FieldChoiceChip {
   /// Optional. default is 'false'
   final bool? autofocus;
+
   /// widget for avatar within quotes
   final String? avatar; // widget
   /// Border around avatar
@@ -77,23 +78,29 @@ class FieldChoiceChip {
   FieldChoiceChip(
     /// Boolean value.
     this.autofocus,
+
     /// Widget to display as the avatar.
     /// specified within quotes.
     this.avatar,
+
     /// Border to draw around the avatar.
     /// ex: 'BoxBorder.all(width: 2.0, color: Colors.grey.shade400)'
     this.avatarBorder,
+
     /// Background color of the chip.
     /// specified within quotes.
     this.backgroundColor,
+
     /// How to clip the chip's content.
     /// ex:'Clip.none'
     this.clipBehavior,
     this.disabledColor,
+
     /// integer value
     /// ex: 5
     this.elevation,
     this.focusNode,
+
     /// Boolean value. Default is 'true'.
     this.isEnabled,
     this.label,
@@ -207,13 +214,33 @@ class FieldDropdown {
   final String? label;
   final String? hint;
   final bool? enabled;
+  final String? type; // enum, text, number, email, password, phone, date, time, dateTime, dateTimeLocal, month, week, time, color
+  final List<Map<String, dynamic>>? options;
+  final dynamic initialValue;
+  final double? sequence;
+
+  const FieldDropdown({
+    this.label,
+    this.hint,
+    this.enabled,
+    this.type,
+    this.options,
+    this.initialValue,
+    this.sequence,
+  });
+}
+
+class FieldDropdownHideUnderline {
+  final String? label;
+  final String? hint;
+  final bool? enabled;
   final Map<String, dynamic>? inputDecoration;
   final String? type; // enum, text, number, email, password, phone, date, time, dateTime, dateTimeLocal, month, week, time, color
   final List<Map<String, dynamic>>? options;
   final dynamic initialValue;
   final double? sequence;
 
-  const FieldDropdown({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.options, this.initialValue, this.sequence});
+  const FieldDropdownHideUnderline({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.options, this.initialValue, this.sequence});
 }
 
 class FieldFilterChip {
@@ -405,8 +432,10 @@ class FieldTextArea {
 class FormBuilder {
   final bool allowNullorEmpty;
   final bool needScaffold;
+  final dynamic platform;
   const FormBuilder({
     this.allowNullorEmpty = false,
     this.needScaffold = true,
+    this.platform,
   });
 }

@@ -64,7 +64,7 @@ class FormValidator {
 
   /// Checks if the  value is a valid date range.
   static String? dateRange(String? value, {String? message, required min, required max}) =>
-      value == null || value.isEmpty || validations.isDateRange(value, min, max) == true ? message ?? null : 'Please enter a valid date range';
+      value == null || value.isEmpty || validations.isDateRange(value, min, max) == true ? null : message ?? 'Please enter a valid date range';
 
   /// Checks if the  value is divisible by a given divisor
   static String? divisibleBy(String? value, {String? message, required int divisor}) =>
@@ -87,7 +87,7 @@ class FormValidator {
 
   /// Check if the
   static String? fixedLength(String? value, {String? message, required int length}) =>
-      value == null || value.isEmpty || value.length != length ? message ?? null : 'Please enter an input of valid length';
+      value == null || value.isEmpty || value.length == length ? null : message ?? 'Please enter an input of valid length';
 
   /// Check if the value is a floating point number.
   static String? float(String? value, {String? message}) =>
@@ -103,13 +103,13 @@ class FormValidator {
 
   /// Check if the value (a Date) is after the given Date.
   static String? isAfter(String? value, {String? message, required min}) => value == null || value.isEmpty || validations.isAfter(value, min) == true
-      ? message ?? null
-      : 'Please enter a date after ${min.runtimeType.toString() == 'DateTime' ? min.toString().substring(0, 10) : min}';
+      ?  null
+      : message ?? 'Please enter a date after ${min.runtimeType.toString() == 'DateTime' ? min.toString().substring(0, 10) : min}';
 
   /// Check if the value (a Date) is before the given Date.
   static String? isBefore(String? value, {String? message, required max}) => value == null || value.isEmpty || validations.isBefore(value, max) == true
-      ? message ?? null
-      : 'Please enter a date before ${max.runtimeType.toString() == 'DateTime' ? max.toString().substring(0, 10) : max}';
+      ?  null
+      : message ?? 'Please enter a date before ${max.runtimeType.toString() == 'DateTime' ? max.toString().substring(0, 10) : max}';
 
   /// Check if the value is in lowercase
   static String? lowerCase(String? value, {String? message}) =>
@@ -121,19 +121,19 @@ class FormValidator {
 
   /// Check if the value is less than the given maximum value.
   static String? max(String? value, {String? message, required int length}) =>
-      value == null || value.isEmpty || value.length <= length ? message ?? null : 'Please enter a value less than or equal to $length';
+      value == null || value.isEmpty || value.length <= length ?  null : message ?? 'Please enter a value less than or equal to $length';
 
   /// Check if the value's length is less than or equal to the given maximum length.
   static String? maxLength(String? value, {String? message, required int length}) =>
-      value == null || value.isEmpty || value.length > length ? message ?? null : 'Please enter a valid length';
+      value == null || value.isEmpty || value.length <= length ? null : message ?? 'Please enter a valid length';
 
   /// Check if the value is more than or equal to the given minimum value.
   static String? min(String? value, {String? message, required int length}) =>
-      value == null || value.isEmpty || value.length >= length ? message ?? null : 'Please enter a value greater than or equal to $length';
+      value == null || value.isEmpty || value.length >= length ?  null : message ?? 'Please enter a value greater than or equal to $length';
 
   /// Check if the value's length is more than or equal to the given minimum length.
   static String? minLength(String? value, {String? message, required int length}) =>
-      value == null || value.isEmpty || value.length < length ? message ?? null : 'Please enter an input of at least $length characters';
+      value == null || value.isEmpty || value.length >= length ?  null : message ?? 'Please enter an input of at least $length characters';
 
   /// Check if the value is an acceptable name string (alpha with '.' and  space characters).
   static String? name(String? value, {String? message}) =>

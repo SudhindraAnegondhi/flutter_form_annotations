@@ -37,26 +37,8 @@ enum FormFieldType {
   rangeSlider,
   object,
 }
-/*
-enum FormFieldType {
-  text,
-  email,
-  password,
-  number,
-  date,
-  datetime,
-  time,
-  filterChip,
-  checkbox,
-  choiceChip,
-  radioGroup,
-  rangeSlider,
-  dropdown,
-  switchField,
-  imagePicker,
-  dropZone
-}
-*/
+double max(double a, double b) => a > b ? a : b;
+double min(double a, double b) => a < b ? a : b;
 
 
 /// Returns TextInputType for the given [FormFieldType].
