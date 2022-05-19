@@ -301,24 +301,31 @@ class FieldSlider {
   final String? label;
   final int? max, min;
   final String? mouseCursor, onChanged, OnChangeStart, OnChangeEnd;
+  final String? semanticFormatter;
+  final bool? suffix;
+  final String? thumbColor;
   final double? value;
   final Map<String, dynamic>? sliderTheme;
 
-  FieldSlider(
-      {this.activeColor,
-      this.autoFocus,
-      this.divisions,
-      this.focusNode,
-      this.inactiveColor,
-      this.label,
-      this.max,
-      this.min,
-      this.mouseCursor,
-      this.onChanged,
-      this.OnChangeStart,
-      this.OnChangeEnd,
-      this.value,
-      this.sliderTheme});
+  const FieldSlider({
+    this.activeColor,
+    this.autoFocus,
+    this.divisions,
+    this.focusNode,
+    this.inactiveColor,
+    this.label,
+    this.max,
+    this.min,
+    this.mouseCursor,
+    this.onChanged,
+    this.OnChangeStart,
+    this.OnChangeEnd,
+    this.semanticFormatter,
+    this.sliderTheme,
+    this.suffix,
+    this.thumbColor,
+    this.value,
+  });
 }
 
 class FieldSwitch {
@@ -395,16 +402,65 @@ class FieldText {
   /// If no sequence is provided, no specific order will be applied to the fields.
   final double? sequence;
 
+  final bool? autocorrect;
+  final bool? autofocus;
+  final String? autovalidateMode;
+  final String? autofillHints;
+  final String? buildCounter;
+  final String? cursorColor;
+  final String? cursorRadius;
+  final String? cursorWidth;
+  final String? enableIMEPersonalizedLearning;
+  final bool? enableInteractiveSelection;
+  final bool? enableSuggestions;
+  final bool? expands;
+  final String? focusNode;
+  final List<String>? inputFormatters;
+  final String? keyboardAppearance;
+  final String? keyboardType;
+  final int? maxLength;
+  final String? maxLengthEnforcement;
+  final int? maxLines;
+  final int? minLines;
+  final String? mouseCursor;
+  final String? obscuringCharacter;
+  final String? onChanged;
+  final String? scrollPadding;
+
   const FieldText(
       {this.label,
+      this.autocorrect,
+      this.autofocus,
+      this.autofillHints,
+      this.autovalidateMode,
+      this.buildCounter,
+      this.cursorColor,
+      this.cursorRadius,
+      this.cursorWidth,
       this.hint,
       this.enabled,
-      this.readOnly,
-      this.obscureText,
+      this.enableIMEPersonalizedLearning,
+      this.enableInteractiveSelection,
+      this.enableSuggestions,
+      this.expands,
+      this.focusNode,
+      this.initialValue,
       this.inputDecoration,
+      this.inputFormatters,
+      this.keyboardAppearance,
+      this.keyboardType,
+      this.maxLength,
+      this.maxLengthEnforcement,
+      this.maxLines,
+      this.minLines,
+      this.mouseCursor,
+      this.obscureText,
+      this.obscuringCharacter,
+      this.onChanged,
+      this.readOnly,
+      this.scrollPadding,
       this.type,
       this.validators,
-      this.initialValue,
       this.sequence});
 }
 
