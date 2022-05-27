@@ -274,22 +274,67 @@ class FieldRangeSlider {
   final int? divisions;
   final String? inactiveColor;
   final String? labels; // comma separated labels
-  final int? max, min;
-  final String? onChanged, OnChangeStart, OnChangeEnd;
-  final int? startValue, endValue;
+  final String? fieldLabel;
+  final bool? suffix; // if true show current values
+  final String? onChanged, OnChangeStart, OnChangeEnd, semanticFormatter;
 
-  const FieldRangeSlider(
-      {this.activeColor,
-      this.divisions,
-      this.inactiveColor,
-      this.labels,
-      this.max,
-      this.min,
-      this.onChanged,
-      this.OnChangeStart,
-      this.OnChangeEnd,
-      this.startValue,
-      this.endValue});
+  ///
+  /// one or more if [labelTextStyle, activeTrackColor, inactiveTrackColor, activeTickMarkColor, inactiveTickMarkColor, thumbColor, overlayColor, valueIndicatorColor, thumbShape, valueIndicatorShape, showValueIndicator]
+  /// sliderComponentShape: one of  [RectangularSliderThumbShape, RoundSliderThumbShape, RoundSliderTickMarkShape, RoundSliderOverlayShape, SliderComponentShape]
+  /// sliderTrackShape: onw od [RectangularSliderTrackShape, RoundSliderTrackShape]
+  /// rangeSliderTickMarkShape: one of [RoundSliderTickMarkShape, RoundSliderTrackShape]
+  /// rangeSliderValueIndicatorShape: one of [PaddleSliderValueIndicatorShape, PaddleSliderValueIndicatorShape]
+  /// rangeSldertickMarkShape: one of [RoundSliderTickMarkShape, RoundSliderTrackShape]
+  ///  double? trackHeight,
+/// Color? activeTrackColor,
+/// Color? inactiveTrackColor,
+/// Color? disabledActiveTrackColor,
+/// Color? disabledInactiveTrackColor,
+/// Color? activeTickMarkColor,
+/// Color? inactiveTickMarkColor,
+/// Color? disabledActiveTickMarkColor,
+/// Color? disabledInactiveTickMarkColor,
+/// Color? thumbColor,
+/// Color? overlappingShapeStrokeColor,
+/// Color? disabledThumbColor,
+/// Color? overlayColor,
+/// Color? valueIndicatorColor,
+/// SliderComponentShape? overlayShape,
+/// SliderTickMarkShape? tickMarkShape,
+/// SliderComponentShape? thumbShape,
+/// SliderTrackShape? trackShape,
+/// SliderComponentShape? valueIndicatorShape,
+/// RangeSliderTickMarkShape? rangeTickMarkShape,
+/// RangeSliderThumbShape? rangeThumbShape,
+/// RangeSliderTrackShape? rangeTrackShape,
+/// RangeSliderValueIndicatorShape? rangeValueIndicatorShape,
+/// ShowValueIndicator? showValueIndicator,
+/// TextStyle? valueIndicatorTextStyle,
+/// double? minThumbSeparation,
+/// Thumb? Function(TextDirection, RangeValues, double, Size, Size, double)? thumbSelector,
+/// MaterialStateProperty<MouseCursor?>? mouseCursor,
+
+  final Map<String, dynamic>?
+      sliderThemeData; // [labelTextStyle, activeTrackColor, inactiveTrackColor, activeTickMarkColor, inactiveTickMarkColor, thumbColor, overlayColor, valueIndicatorColor, thumbShape, valueIndicatorShape, showValueIndicator]
+  final double? start, end, max, min;
+
+  const FieldRangeSlider({
+    this.activeColor,
+    this.divisions,
+    this.inactiveColor,
+    this.labels,
+    this.fieldLabel,
+    this.suffix,
+    this.start,
+    this.end,
+    this.max,
+    this.min,
+    this.onChanged,
+    this.OnChangeStart,
+    this.OnChangeEnd,
+    this.semanticFormatter,
+    this.sliderThemeData,
+  });
 }
 
 class FieldSlider {
@@ -299,13 +344,14 @@ class FieldSlider {
   final String? focusNode;
   final String? inactiveColor;
   final String? label;
+  final double? start, end;
   final int? max, min;
   final String? mouseCursor, onChanged, OnChangeStart, OnChangeEnd;
   final String? semanticFormatter;
   final bool? suffix;
   final String? thumbColor;
   final double? value;
-  final Map<String, dynamic>? sliderTheme;
+  final Map<String, dynamic>? sliderThemeData;
 
   const FieldSlider({
     this.activeColor,
@@ -316,12 +362,14 @@ class FieldSlider {
     this.label,
     this.max,
     this.min,
+    this.start,
+    this.end,
     this.mouseCursor,
     this.onChanged,
     this.OnChangeStart,
     this.OnChangeEnd,
     this.semanticFormatter,
-    this.sliderTheme,
+    this.sliderThemeData,
     this.suffix,
     this.thumbColor,
     this.value,
