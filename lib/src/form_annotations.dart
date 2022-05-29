@@ -3,49 +3,48 @@
 import 'form_validator.dart' show FieldValidator;
 
 class FieldCheckbox {
-  /// Optional label.
-  final String? label;
+  // Flutter CheckBox properties
+  final String? activeColor;
+  final bool? autofocus;
+  final String? checkColor;
+  final String? fillColor;
+  final String? focusColor;
+  final String? focusNode;
+  final String? hoverColor;
+  final String? materialTapTargetSize;
+  final String? mouseCursor;
+  final String? overlayColor;
+  final String? shape;
+  final String? side;
+  final String? splashRadius;
+  final String? tristate;
+  final bool? value;
+  final String? visualDensity;
 
-  /// Optional hint.
-  final String? hint;
-
-  /// Field enabled. Default is 'true'.
-  final bool? enabled;
-  //// Input Decoration. With same propertes as InputDecoration
-  /// specified as a source map:
-  /// {
-  ///  'labelText': 'Label',
-  ///  'hintText': 'Hint',
-  ///   suffixIcon: 'Icon(Icons.arrow_drop_down'),
-  /// } ** Note the values are quoted.
-  final Map<String, dynamic>? inputDecoration;
-
-  final String? type; //// Type of the field.
-  /// Validation rules.
-  /// [
-  ///  { FieldValidator.required: {'message': 'Fill this or else} },
-  ///  { FieldValidator.minLength: {'length': 5, 'message': 'Too short'} },
-  ///  {'FieldValidator.custom': {'function': 'String? custom(value, required int length) => value.length < 5 ? "Too
-  ///   short" : null}, 'length': 5, } },
-  /// ]
-  /// Note: The validator is a list of maps.
-  /// You may specify multiple validators and multiple custom validators. Please note
-  /// that each custom validator function must return null if the value is valid else a string
-  /// and is named custom.
-  final List<Map<FieldValidator, dynamic>>? validators;
-
-  /// The default value of the field.
-  final dynamic initialValue;
-
-  /// The sequence of presentation of the field in the form
-  final double? sequence;
-
-  const FieldCheckbox({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.validators, this.initialValue, this.sequence});
+  const FieldCheckbox({
+    this.activeColor,
+    this.autofocus,
+    this.checkColor,
+    this.fillColor,
+    this.focusColor,
+    this.focusNode,
+    this.hoverColor,
+    this.materialTapTargetSize,
+    this.mouseCursor,
+    this.overlayColor,
+    this.shape,
+    this.side,
+    this.splashRadius,
+    this.tristate,
+    this.value,
+    this.visualDensity,
+  });
 }
 
 class FieldChoiceChip {
   /// Optional. default is 'false'
   final bool? autofocus;
+  final String? type; // basically: enum/any other type
 
   /// widget for avatar within quotes
   final String? avatar; // widget
@@ -62,23 +61,24 @@ class FieldChoiceChip {
   final String? labelPadding; // EdgeInsets.symmetric(horizontal: 8.0)
   final String? labelStyle; // TextStyle(color: Colors.grey.shade700)
   final String? materialTapTargetSize; // MaterialTapTargetSize.shrinkWrap
+  final Map<String, dynamic>? choices; // ['option1', 'option2', 'option3']
   final String? onSelected; // (bool value) {}
   final String? padding; // EdgeInsets.all(4.0)
   final double? pressElevation; // 0
   final bool? selected; // false
   final String? selectedColor; // Colors.blue.shade100
   final String? selectedShadowColor; // Colors.blue.shade100
-  final double sequence;
+  final double? sequence;
   final String? shadowColor; // Colors.blue.shade100
   final String? shape; // RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0))
   final String? side; //BorderSide(color: Colors.grey.shade400, width: 1.0)
   final String? tooltip; // null
   final String? visulalDensity;
 
-  FieldChoiceChip(
+  const FieldChoiceChip({
     /// Boolean value.
     this.autofocus,
-
+    required this.type,
     /// Widget to display as the avatar.
     /// specified within quotes.
     this.avatar,
@@ -108,6 +108,7 @@ class FieldChoiceChip {
     this.labelStyle,
     this.materialTapTargetSize,
     this.onSelected,
+    this.choices,
     this.padding,
     this.pressElevation,
     this.selected,
@@ -119,7 +120,7 @@ class FieldChoiceChip {
     this.side,
     this.tooltip,
     this.visulalDensity,
-  ); // VisualDensity.adaptivePlatformDensity
+  }); // VisualDensity.adaptivePlatformDensity
 
 }
 
@@ -242,6 +243,8 @@ class FieldDropdownHideUnderline {
 
   const FieldDropdownHideUnderline({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.options, this.initialValue, this.sequence});
 }
+/*
+// TBD for implementation
 
 class FieldFilterChip {
   final String? label;
@@ -255,7 +258,7 @@ class FieldFilterChip {
 
   const FieldFilterChip({this.label, this.hint, this.enabled, this.inputDecoration, this.type, this.options, this.initialValue, this.sequence});
 }
-
+*/
 class FieldRadio {
   final String? type; // type
   final String? activeColor;
@@ -286,33 +289,33 @@ class FieldRangeSlider {
   /// rangeSliderValueIndicatorShape: one of [PaddleSliderValueIndicatorShape, PaddleSliderValueIndicatorShape]
   /// rangeSldertickMarkShape: one of [RoundSliderTickMarkShape, RoundSliderTrackShape]
   ///  double? trackHeight,
-/// Color? activeTrackColor,
-/// Color? inactiveTrackColor,
-/// Color? disabledActiveTrackColor,
-/// Color? disabledInactiveTrackColor,
-/// Color? activeTickMarkColor,
-/// Color? inactiveTickMarkColor,
-/// Color? disabledActiveTickMarkColor,
-/// Color? disabledInactiveTickMarkColor,
-/// Color? thumbColor,
-/// Color? overlappingShapeStrokeColor,
-/// Color? disabledThumbColor,
-/// Color? overlayColor,
-/// Color? valueIndicatorColor,
-/// SliderComponentShape? overlayShape,
-/// SliderTickMarkShape? tickMarkShape,
-/// SliderComponentShape? thumbShape,
-/// SliderTrackShape? trackShape,
-/// SliderComponentShape? valueIndicatorShape,
-/// RangeSliderTickMarkShape? rangeTickMarkShape,
-/// RangeSliderThumbShape? rangeThumbShape,
-/// RangeSliderTrackShape? rangeTrackShape,
-/// RangeSliderValueIndicatorShape? rangeValueIndicatorShape,
-/// ShowValueIndicator? showValueIndicator,
-/// TextStyle? valueIndicatorTextStyle,
-/// double? minThumbSeparation,
-/// Thumb? Function(TextDirection, RangeValues, double, Size, Size, double)? thumbSelector,
-/// MaterialStateProperty<MouseCursor?>? mouseCursor,
+  /// Color? activeTrackColor,
+  /// Color? inactiveTrackColor,
+  /// Color? disabledActiveTrackColor,
+  /// Color? disabledInactiveTrackColor,
+  /// Color? activeTickMarkColor,
+  /// Color? inactiveTickMarkColor,
+  /// Color? disabledActiveTickMarkColor,
+  /// Color? disabledInactiveTickMarkColor,
+  /// Color? thumbColor,
+  /// Color? overlappingShapeStrokeColor,
+  /// Color? disabledThumbColor,
+  /// Color? overlayColor,
+  /// Color? valueIndicatorColor,
+  /// SliderComponentShape? overlayShape,
+  /// SliderTickMarkShape? tickMarkShape,
+  /// SliderComponentShape? thumbShape,
+  /// SliderTrackShape? trackShape,
+  /// SliderComponentShape? valueIndicatorShape,
+  /// RangeSliderTickMarkShape? rangeTickMarkShape,
+  /// RangeSliderThumbShape? rangeThumbShape,
+  /// RangeSliderTrackShape? rangeTrackShape,
+  /// RangeSliderValueIndicatorShape? rangeValueIndicatorShape,
+  /// ShowValueIndicator? showValueIndicator,
+  /// TextStyle? valueIndicatorTextStyle,
+  /// double? minThumbSeparation,
+  /// Thumb? Function(TextDirection, RangeValues, double, Size, Size, double)? thumbSelector,
+  /// MaterialStateProperty<MouseCursor?>? mouseCursor,
 
   final Map<String, dynamic>?
       sliderThemeData; // [labelTextStyle, activeTrackColor, inactiveTrackColor, activeTickMarkColor, inactiveTickMarkColor, thumbColor, overlayColor, valueIndicatorColor, thumbShape, valueIndicatorShape, showValueIndicator]
@@ -345,7 +348,7 @@ class FieldSlider {
   final String? inactiveColor;
   final String? label;
   final double? start, end;
-  final int? max, min;
+  final double? max, min;
   final String? mouseCursor, onChanged, OnChangeStart, OnChangeEnd;
   final String? semanticFormatter;
   final bool? suffix;
