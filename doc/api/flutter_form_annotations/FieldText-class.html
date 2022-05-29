@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the FieldText class from the flutter_form_annotations library, for the Dart programming language.">
+  <title>FieldText class - flutter_form_annotations library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">flutter_form_annotations</a></li>
+    <li><a href="../flutter_form_annotations/flutter_form_annotations-library.html">flutter_form_annotations</a></li>
+    <li class="self-crumb">FieldText class</li>
+  </ol>
+  <div class="self-name">FieldText</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-class">FieldText</span> class 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>@FieldText() decorator is used to decorate each Text, Number, Email, password or Phone
+field in the form.
+All properties are optional.</p>
+</section>
+
+
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
+
+    <dl class="constructor-summary-list">
+        <dt id="FieldText" class="callable">
+          <span class="name"><a href="../flutter_form_annotations/FieldText/FieldText.html">FieldText</a></span><span class="signature">(<span class="parameter" id="-param-label">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">label</span>, </span><span class="parameter" id="-param-autocorrect"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">autocorrect</span>, </span><span class="parameter" id="-param-autofocus"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">autofocus</span>, </span><span class="parameter" id="-param-autofillHints"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">autofillHints</span>, </span><span class="parameter" id="-param-autovalidateMode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">autovalidateMode</span>, </span><span class="parameter" id="-param-buildCounter"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">buildCounter</span>, </span><span class="parameter" id="-param-cursorColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">cursorColor</span>, </span><span class="parameter" id="-param-cursorRadius"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">cursorRadius</span>, </span><span class="parameter" id="-param-cursorWidth"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">cursorWidth</span>, </span><span class="parameter" id="-param-hint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hint</span>, </span><span class="parameter" id="-param-enabled"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">enabled</span>, </span><span class="parameter" id="-param-enableIMEPersonalizedLearning"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">enableIMEPersonalizedLearning</span>, </span><span class="parameter" id="-param-enableInteractiveSelection"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">enableInteractiveSelection</span>, </span><span class="parameter" id="-param-enableSuggestions"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">enableSuggestions</span>, </span><span class="parameter" id="-param-expands"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">expands</span>, </span><span class="parameter" id="-param-focusNode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">focusNode</span>, </span><span class="parameter" id="-param-initialValue"><span class="type-annotation">dynamic</span> <span class="parameter-name">initialValue</span>, </span><span class="parameter" id="-param-inputDecoration"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span>?</span> <span class="parameter-name">inputDecoration</span>, </span><span class="parameter" id="-param-inputFormatters"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>?</span> <span class="parameter-name">inputFormatters</span>, </span><span class="parameter" id="-param-keyboardAppearance"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">keyboardAppearance</span>, </span><span class="parameter" id="-param-keyboardType"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">keyboardType</span>, </span><span class="parameter" id="-param-maxLength"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLength</span>, </span><span class="parameter" id="-param-maxLengthEnforcement"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">maxLengthEnforcement</span>, </span><span class="parameter" id="-param-maxLines"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLines</span>, </span><span class="parameter" id="-param-minLines"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">minLines</span>, </span><span class="parameter" id="-param-mouseCursor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">mouseCursor</span>, </span><span class="parameter" id="-param-obscureText"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">obscureText</span>, </span><span class="parameter" id="-param-obscuringCharacter"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">obscuringCharacter</span>, </span><span class="parameter" id="-param-onChanged"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">onChanged</span>, </span><span class="parameter" id="-param-readOnly"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">readOnly</span>, </span><span class="parameter" id="-param-scrollPadding"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">scrollPadding</span>, </span><span class="parameter" id="-param-type"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">type</span>, </span><span class="parameter" id="-param-validators"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../flutter_form_annotations/FieldValidator.html">FieldValidator</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span>&gt;</span>?</span> <span class="parameter-name">validators</span>, </span><span class="parameter" id="-param-sequence"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">sequence</span>}</span>)</span>
+        </dt>
+        <dd>
+          
+            <div class="constructor-modifier features">const</div>
+        </dd>
+    </dl>
+  </section>
+
+    <section class="summary offset-anchor" id="instance-properties">
+      <h2>Properties</h2>
+
+      <dl class="properties">
+        <dt id="autocorrect" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/autocorrect.html">autocorrect</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="autofillHints" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/autofillHints.html">autofillHints</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="autofocus" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/autofocus.html">autofocus</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="autovalidateMode" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/autovalidateMode.html">autovalidateMode</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="buildCounter" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/buildCounter.html">buildCounter</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="cursorColor" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/cursorColor.html">cursorColor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="cursorRadius" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/cursorRadius.html">cursorRadius</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="cursorWidth" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/cursorWidth.html">cursorWidth</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="enabled" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/enabled.html">enabled</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="enableIMEPersonalizedLearning" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/enableIMEPersonalizedLearning.html">enableIMEPersonalizedLearning</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="enableInteractiveSelection" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/enableInteractiveSelection.html">enableInteractiveSelection</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="enableSuggestions" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/enableSuggestions.html">enableSuggestions</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="expands" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/expands.html">expands</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="focusNode" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/focusNode.html">focusNode</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> 
+
+</dt>
+<dd class="inherited">
+  The hash code for this object.
+  <div class="features">read-only, inherited</div>
+
+</dd>
+
+        <dt id="hint" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/hint.html">hint</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="initialValue" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/initialValue.html">initialValue</a></span>
+  <span class="signature">&#8594; dynamic</span> 
+
+</dt>
+<dd>
+  Default value of the field
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="inputDecoration" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/inputDecoration.html">inputDecoration</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span>?</span> 
+
+</dt>
+<dd>
+  <a href="../flutter_form_annotations/FieldText/inputDecoration.html">inputDecoration</a> map of properties tto decorate the field.
+for example {
+  'labelText': 'Label Text',
+  'hintText': 'Hint Text',
+  'errorText': 'Error Text',
+  'suffixIcon': Icon(Icons.search),
+  'border: OutlineInputBorder(),
+}
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="inputFormatters" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/inputFormatters.html">inputFormatters</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="keyboardAppearance" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/keyboardAppearance.html">keyboardAppearance</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="keyboardType" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/keyboardType.html">keyboardType</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="label" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/label.html">label</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="maxLength" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/maxLength.html">maxLength</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="maxLengthEnforcement" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/maxLengthEnforcement.html">maxLengthEnforcement</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="maxLines" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/maxLines.html">maxLines</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="minLines" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/minLines.html">minLines</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="mouseCursor" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/mouseCursor.html">mouseCursor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="obscureText" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/obscureText.html">obscureText</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> 
+
+</dt>
+<dd>
+  true for password field
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="obscuringCharacter" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/obscuringCharacter.html">obscuringCharacter</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="onChanged" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/onChanged.html">onChanged</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="readOnly" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/readOnly.html">readOnly</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span> 
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object.
+  <div class="features">read-only, inherited</div>
+
+</dd>
+
+        <dt id="scrollPadding" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/scrollPadding.html">scrollPadding</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="sequence" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/sequence.html">sequence</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> 
+
+</dt>
+<dd>
+  The sequence of the field in the form.
+If no sequence is provided, no specific order will be applied to the fields.
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="type" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/type.html">type</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  <a href="../flutter_form_annotations/FieldText/type.html">type</a> Default is 'text', can be 'number', 'email', 'password', 'phone'
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="validators" class="property">
+  <span class="name"><a href="../flutter_form_annotations/FieldText/validators.html">validators</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../flutter_form_annotations/FieldValidator.html">FieldValidator</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span>&gt;</span>?</span> 
+
+</dt>
+<dd>
+  Several predefined validators can be used to validate the field.
+For example, <code>required</code> , <code>email</code>  please see the validators reference
+If you want to use your own validator, you can use <code>custom</code> type
+and add your own validator function. The function must return a null
+if the field is valid or a string with the error message if the field is invalid.
+  <div class="features">final</div>
+
+</dd>
+
+      </dl>
+    </section>
+
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a non-existent method or property is accessed.
+  <div class="features">inherited</div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A string representation of this object.
+  <div class="features">inherited</div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  The equality operator.
+  <div class="features">inherited</div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">flutter_form_annotations</a></li>
+  <li><a href="../flutter_form_annotations/flutter_form_annotations-library.html">flutter_form_annotations</a></li>
+  <li class="self-crumb">FieldText class</li>
+</ol>
+
+
+    <h5>flutter_form_annotations library</h5>
+    <ol>
+  <li class="section-title"><a href="../flutter_form_annotations/flutter_form_annotations-library.html#classes">Classes</a></li>
+  <li><a href="../flutter_form_annotations/FieldCheckbox-class.html">FieldCheckbox</a></li>
+  <li><a href="../flutter_form_annotations/FieldChoiceChip-class.html">FieldChoiceChip</a></li>
+  <li><a href="../flutter_form_annotations/FieldClass-class.html">FieldClass</a></li>
+  <li><a href="../flutter_form_annotations/FieldDatePicker-class.html">FieldDatePicker</a></li>
+  <li><a href="../flutter_form_annotations/FieldDateRangePicker-class.html">FieldDateRangePicker</a></li>
+  <li><a href="../flutter_form_annotations/FieldDropdown-class.html">FieldDropdown</a></li>
+  <li><a href="../flutter_form_annotations/FieldDropdownHideUnderline-class.html">FieldDropdownHideUnderline</a></li>
+  <li><a href="../flutter_form_annotations/FieldRadio-class.html">FieldRadio</a></li>
+  <li><a href="../flutter_form_annotations/FieldRangeSlider-class.html">FieldRangeSlider</a></li>
+  <li><a href="../flutter_form_annotations/FieldSlider-class.html">FieldSlider</a></li>
+  <li><a href="../flutter_form_annotations/FieldSwitch-class.html">FieldSwitch</a></li>
+  <li><a href="../flutter_form_annotations/FieldText-class.html">FieldText</a></li>
+  <li><a href="../flutter_form_annotations/FieldTextArea-class.html">FieldTextArea</a></li>
+  <li><a href="../flutter_form_annotations/FormBuilder-class.html">FormBuilder</a></li>
+  <li><a href="../flutter_form_annotations/FormValidator-class.html">FormValidator</a></li>
+
+
+
+
+
+  <li class="section-title"><a href="../flutter_form_annotations/flutter_form_annotations-library.html#functions">Functions</a></li>
+  <li><a href="../flutter_form_annotations/camelCaseToTitleCase.html">camelCaseToTitleCase</a></li>
+  <li><a href="../flutter_form_annotations/getKeyboardType.html">getKeyboardType</a></li>
+  <li><a href="../flutter_form_annotations/hasSubAttributes.html">hasSubAttributes</a></li>
+  <li><a href="../flutter_form_annotations/isMeta.html">isMeta</a></li>
+  <li><a href="../flutter_form_annotations/isValidAttribute.html">isValidAttribute</a></li>
+  <li><a href="../flutter_form_annotations/isValidFieldType.html">isValidFieldType</a></li>
+  <li><a href="../flutter_form_annotations/isValidType.html">isValidType</a></li>
+  <li><a href="../flutter_form_annotations/max.html">max</a></li>
+  <li><a href="../flutter_form_annotations/min.html">min</a></li>
+  <li><a href="../flutter_form_annotations/mustHaveValues.html">mustHaveValues</a></li>
+  <li><a href="../flutter_form_annotations/stringToTypeValue.html">stringToTypeValue</a></li>
+  <li><a href="../flutter_form_annotations/typeToValue.html">typeToValue</a></li>
+  <li><a href="../flutter_form_annotations/valueToType.html">valueToType</a></li>
+
+  <li class="section-title"><a href="../flutter_form_annotations/flutter_form_annotations-library.html#enums">Enums</a></li>
+  <li><a href="../flutter_form_annotations/FieldPropertyType.html">FieldPropertyType</a></li>
+  <li><a href="../flutter_form_annotations/FieldValidator.html">FieldValidator</a></li>
+  <li><a href="../flutter_form_annotations/FormFieldType.html">FormFieldType</a></li>
+
+
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+    <ol>
+
+        <li class="section-title"><a href="../flutter_form_annotations/FieldText-class.html#constructors">Constructors</a></li>
+          <li><a href="../flutter_form_annotations/FieldText/FieldText.html">FieldText</a></li>
+
+
+    <li class="section-title">
+      <a href="../flutter_form_annotations/FieldText-class.html#instance-properties">Properties</a>
+    </li>
+    <li><a href="../flutter_form_annotations/FieldText/autocorrect.html">autocorrect</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/autofillHints.html">autofillHints</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/autofocus.html">autofocus</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/autovalidateMode.html">autovalidateMode</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/buildCounter.html">buildCounter</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/cursorColor.html">cursorColor</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/cursorRadius.html">cursorRadius</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/cursorWidth.html">cursorWidth</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/enabled.html">enabled</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/enableIMEPersonalizedLearning.html">enableIMEPersonalizedLearning</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/enableInteractiveSelection.html">enableInteractiveSelection</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/enableSuggestions.html">enableSuggestions</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/expands.html">expands</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/focusNode.html">focusNode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/hint.html">hint</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/initialValue.html">initialValue</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/inputDecoration.html">inputDecoration</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/inputFormatters.html">inputFormatters</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/keyboardAppearance.html">keyboardAppearance</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/keyboardType.html">keyboardType</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/label.html">label</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/maxLength.html">maxLength</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/maxLengthEnforcement.html">maxLengthEnforcement</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/maxLines.html">maxLines</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/minLines.html">minLines</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/mouseCursor.html">mouseCursor</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/obscureText.html">obscureText</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/obscuringCharacter.html">obscuringCharacter</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/onChanged.html">onChanged</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/readOnly.html">readOnly</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/scrollPadding.html">scrollPadding</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/sequence.html">sequence</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/type.html">type</a></li>
+    <li><a href="../flutter_form_annotations/FieldText/validators.html">validators</a></li>
+
+    <li class="section-title inherited"><a href="../flutter_form_annotations/FieldText-class.html#instance-methods">Methods</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../flutter_form_annotations/FieldText-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    flutter_form_annotations
+      0.0.1-dev-01
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+
